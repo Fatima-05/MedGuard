@@ -6,7 +6,7 @@ class AuthScreen extends StatelessWidget {
   const AuthScreen({super.key});
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: const AppNavBar(),
       body: SafeArea(
@@ -35,10 +35,7 @@ class AuthScreen extends StatelessWidget {
                 const Text(
                   'Sign in to check your medications.',
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: AppColors.slate500,
-                  ),
+                  style: TextStyle(fontSize: 12, color: AppColors.slate500),
                 ),
                 const SizedBox(height: 24),
                 const TextField(
@@ -64,10 +61,7 @@ class AuthScreen extends StatelessWidget {
                   onPressed: () {},
                   child: const Text(
                     'Sign In',
-                    style: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.w700,
-                    ),
+                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
                   ),
                 ),
                 const SizedBox(height: 16),

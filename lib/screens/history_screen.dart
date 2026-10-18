@@ -9,8 +9,8 @@ class HistoryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:const AppNavBar(active: 'history'),
-      body:SafeArea(
+      appBar: const AppNavBar(active: 'history'),
+      body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(20),
           child: Column(
@@ -18,7 +18,7 @@ class HistoryScreen extends StatelessWidget {
             children: [
               const Text(
                 'Analysis History',
-                style:TextStyle(
+                style: TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.w800,
                   color: AppColors.slate900,
@@ -27,10 +27,7 @@ class HistoryScreen extends StatelessWidget {
               const SizedBox(height: 6),
               const Text(
                 'Your previous medication checks.',
-                style: TextStyle(
-                  fontSize: 12.5,
-                  color: AppColors.slate500,
-                ),
+                style: TextStyle(fontSize: 12.5, color: AppColors.slate500),
               ),
               const SizedBox(height: 18),
               for (final item in sampleHistory) ...[
