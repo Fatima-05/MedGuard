@@ -1,4 +1,4 @@
-# medguard_ai
+# MedGuard
 
 Mobile Appilcation Development Semester Project.
 
