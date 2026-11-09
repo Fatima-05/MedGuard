@@ -27,11 +27,11 @@ class MedGuardApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: AppColors.teal600),
         scaffoldBackgroundColor: AppColors.canvas,
       ),
-      home: const SplashScreen(),
+      // home: const SplashScreen(),
       // home: const LandingScreen(),
       // home: const AuthScreen(),
       // home: const CheckerScreen(),
-      // home: const ScanScreen(),
+      home: const ScanScreen(),
       // home: const ResultsScreen(),
       // home: const HistoryScreen(),
     );
