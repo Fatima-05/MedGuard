@@ -1,114 +1,63 @@
 import 'package:flutter/material.dart';
-import '../colors.dart';
-import '../widgets/medication_card.dart';
+import '../data.dart';
 
-class ScanScreen extends StatelessWidget{
+class ScanScreen extends StatelessWidget {
   const ScanScreen({super.key});
 
-  static const List<Medication> _detected=[
-    Medication(
-      name:'Warfarin',
-      dosage:'5 mg',
-      frequency:'Once daily',
-      rxcui:'11289',
-      purpose:'Blood thinner',
-    ),
-    Medication(
-      name:'Aspirin',
-      dosage:'81 mg',
-      frequency:'Once daily',
-      rxcui:'1191',
-      purpose:'Antiplatelet',
-    ),
-  ];
+  void showMessage(BuildContext context) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text('Camera is not connected yet')),
+    );
+  }
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const AppNavBar(active:'checker'),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.all(20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children:[
-              const Text(
-                'Scan Medication Label',
-                style: TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.w800,
-                  color: AppColors.slate900,
+      appBar: AppBar(title: const Text('Scan Medication Label')),
+      body: ListView(
+        padding: const EdgeInsets.all(20),
+        children: [
+          const Text('Point the camera at the medicine label.'),
+          const SizedBox(height: 14),
+          Container(
+            height: 180,
+            color: Colors.grey.shade300,
+            child: const Center(child: Icon(Icons.photo_camera, size: 60)),
+          ),
+          const SizedBox(height: 14),
+          Row(
+            children: [
+              Expanded(
+                child: FilledButton.icon(
+                  onPressed: () => showMessage(context),
+                  icon: const Icon(Icons.photo_camera),
+                  label: const Text('Capture'),
                 ),
               ),
-              const SizedBox(height: 6),
-              const Text(
-                'Point the camera at the medicine label.',
-                style: TextStyle(
-                  fontSize: 12.5,
-                  color: AppColors.slate500,
-                ),
-              ),
-              const SizedBox(height:18),
-              const SizedBox(height:14),
-              Row(
-                children: [
-                  Expanded(
-                    child: FilledButton.icon(
-                      style: FilledButton.styleFrom(
-                        backgroundColor: AppColors.teal600,
-                        padding: const EdgeInsets.symmetric(vertical:14),
-                      ),
-                      onPressed: () {},
-                      icon: const Icon(Icons.photo_camera_rounded, size:18),
-                      label: const Text('Capture'),
-                    ),
-                  ),
-                  const SizedBox(width: 12),
-                  Expanded(
-                    child: OutlinedButton.icon(
-                      style: OutlinedButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(vertical:14),
-                      ),
-                      onPressed:(){},
-                      icon: const Icon(Icons.upload_rounded, size:18),
-                      label: const Text('Upload'),
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height:24),
-              Text(
-                'DETECTED (${_detected.length})',
-                style: const TextStyle(
-                  fontSize: 11,
-                  fontWeight: FontWeight.w700,
-                  letterSpacing: 1.4,
-                  color: AppColors.slate400,
-                ),
-              ),
-              const SizedBox(height:12),
-              for (final med in _detected) ...[
-                MedicationCard(medication: med),
-                const SizedBox(height:10),
-              ],
-              const SizedBox(height:8),
-              FilledButton(
-                style: FilledButton.styleFrom(
-                  backgroundColor: AppColors.teal600,
-                  padding: const EdgeInsets.symmetric(vertical: 16),
-                ),
-                onPressed:(){},
-                child: const Text(
-                  'Add to My List',
-                  style: TextStyle(
-                    fontSize:15,
-                    fontWeight: FontWeight.w700,
-                  ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: OutlinedButton.icon(
+                  onPressed: () => showMessage(context),
+                  icon: const Icon(Icons.upload),
+                  label: const Text('Upload'),
                 ),
               ),
             ],
           ),
-        ),
+          const SizedBox(height: 20),
+          Text(
+            'DETECTED (${scannedMeds.length})',
+            style: const TextStyle(fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 8),
+          for (final med in scannedMeds) MedicationCard(medication: med),
+          const SizedBox(height: 16),
+          FilledButton(
+            // Go back and send the detected medicines to the checker.
+            onPressed: () => Navigator.pop(context, scannedMeds),
+            child: const Text('Add to My List'),
+          ),
+        ],
       ),
     );
   }
