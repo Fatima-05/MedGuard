@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../data.dart';
 import 'results_screen.dart';
 
+
 class HistoryScreen extends StatelessWidget {
   const HistoryScreen({super.key});
 
