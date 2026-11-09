@@ -7,7 +7,8 @@ class ResultsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Read the data sent with RouteSettings.
-    final data = ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+    final data =
+        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
     final List interactions = data['interactions'];
     final List questions = data['questions'];
 
@@ -42,7 +43,10 @@ class ResultsScreen extends StatelessWidget {
                 for (final q in questions)
                   ListTile(
                     contentPadding: EdgeInsets.zero,
-                    leading: const Icon(Icons.help_outline, color: Colors.deepPurple),
+                    leading: const Icon(
+                      Icons.help_outline,
+                      color: Colors.deepPurple,
+                    ),
                     title: Text(q),
                   ),
               ],

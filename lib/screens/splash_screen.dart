@@ -15,7 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
     // After 3 seconds, replace the splash screen with the landing screen.
     Future.delayed(const Duration(seconds: 3), () {
       if (!mounted) return;
-      Navigator.pushReplacement(
+      Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => const LandingScreen()),
       );
