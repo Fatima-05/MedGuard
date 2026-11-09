@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import '../data.dart';
-import '../screens/checker_screen.dart';
-import '../screens/dashboard_screen.dart';
-import '../screens/history_screen.dart';
-import '../screens/landing_screen.dart';
+import 'data.dart';
+import 'screens/checker_screen.dart';
+import 'screens/dashboard_screen.dart';
+import 'screens/history_screen.dart';
+import 'screens/landing_screen.dart';
 
 // A card showing one medicine. The remove button only shows if onRemove is given.
 class MedicationCard extends StatelessWidget {
