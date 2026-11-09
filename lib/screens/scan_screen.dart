@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../data.dart';
+import '../widgets.dart';
 
 class ScanScreen extends StatelessWidget {
   const ScanScreen({super.key});

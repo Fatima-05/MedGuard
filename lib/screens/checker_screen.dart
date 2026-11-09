@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../data.dart';
 import 'results_screen.dart';
 import 'scan_screen.dart';
+import '../widgets.dart';
 
 class CheckerScreen extends StatefulWidget {
   const CheckerScreen({super.key});
@@ -18,12 +19,14 @@ class _CheckerScreenState extends State<CheckerScreen> {
     String name = nameController.text.trim();
     if (name.isEmpty) return;
     setState(() {
-      meds.add(Medication(
-        name: name,
-        dosage: 'Dose not set',
-        frequency: 'Not set',
-        rxcui: 'N/A',
-      ));
+      meds.add(
+        Medication(
+          name: name,
+          dosage: 'Dose not set',
+          frequency: 'Not set',
+          rxcui: 'N/A',
+        ),
+      );
       nameController.clear();
     });
   }
@@ -67,10 +70,7 @@ class _CheckerScreenState extends State<CheckerScreen> {
       appBar: AppBar(
         title: const Text('Medication Checker'),
         actions: [
-          IconButton(
-            icon: const Icon(Icons.photo_camera),
-            onPressed: openScan,
-          ),
+          IconButton(icon: const Icon(Icons.photo_camera), onPressed: openScan),
         ],
       ),
       drawer: const AppDrawer(),
@@ -91,7 +91,11 @@ class _CheckerScreenState extends State<CheckerScreen> {
                 ),
               ),
               IconButton(
-                icon: const Icon(Icons.add_circle, color: Colors.teal, size: 36),
+                icon: const Icon(
+                  Icons.add_circle,
+                  color: Colors.teal,
+                  size: 36,
+                ),
                 onPressed: addMedicine,
               ),
             ],

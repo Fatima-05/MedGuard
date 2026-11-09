@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets.dart';
 
 class ResultsScreen extends StatelessWidget {
   const ResultsScreen({super.key});
