@@ -3,7 +3,6 @@ import '../data.dart';
 import 'results_screen.dart';
 import '../widgets.dart';
 
-
 class HistoryScreen extends StatelessWidget {
   const HistoryScreen({super.key});
 
@@ -11,7 +10,6 @@ class HistoryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Analysis History')),
-      drawer: const Drawer(),
       body: ListView.builder(
         padding: const EdgeInsets.all(20),
         itemCount: history.length,

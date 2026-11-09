@@ -100,10 +100,7 @@ class AppDrawer extends StatelessWidget {
   // Close the drawer, then replace the current screen with the new one.
   void goTo(BuildContext context, Widget screen) {
     Navigator.pop(context);
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) => screen),
-    );
+    Navigator.push(context, MaterialPageRoute(builder: (context) => screen));
   }
 
   // Go back to the landing screen and clear every screen from the stack,
