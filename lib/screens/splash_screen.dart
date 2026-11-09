@@ -1,71 +1,55 @@
 import 'package:flutter/material.dart';
+import 'landing_screen.dart';
 
-import '../colors.dart';
-
-class SplashScreen extends StatelessWidget{
+class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
   @override
-  Widget build(BuildContext context){
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    // After 3 seconds, replace the splash screen with the landing screen.
+    Future.delayed(const Duration(seconds: 3), () {
+      if (!mounted) return;
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const LandingScreen()),
+      );
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
-      appBar:const AppNavBar(),
-      body:SafeArea(
+      body: Center(
         child: Padding(
-          padding: const EdgeInsets.all(28),
+          padding: const EdgeInsets.all(24),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children:[
-              Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children:[
-                    Image.asset(
-                      'assets/images/medguard_logo.png',
-                      width:72,
-                      height:72,
-                    ),
-                    const SizedBox(height: 18),
-                    const Text(
-                      'MedGuard',
-                      style: TextStyle(
-                        fontSize:30,
-                        fontWeight: FontWeight.w800,
-                        color: AppColors.teal900,
-                      ),
-                    ),
-                    const SizedBox(height:6),
-                    const Text(
-                      'Medication interaction checker for caregivers',
-                      textAlign:TextAlign.center,
-                      style:TextStyle(
-                        fontSize:13,
-                        color: AppColors.slate500,
-                      ),
-                    ),
-                    const SizedBox(height:26),
-                    ClipRRect(
-                      borderRadius:BorderRadius.circular(20),
-                      child:Image.asset(
-                        'assets/images/landing_banner.png',
-                        height:140,
-                        fit:BoxFit.cover,
-                      ),
-                    ),
-                    const SizedBox(height:30),
-                    const CircularProgressIndicator(
-                      strokeWidth:3,
-                      color: AppColors.teal600,
-                    ),
-                  ],
-                ),
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset('assets/images/medguard_logo.png', width: 80),
+              const SizedBox(height: 16),
+              const Text(
+                'MedGuard',
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
               ),
+              const SizedBox(height: 8),
+              const Text(
+                'Medication interaction checker for caregivers',
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 24),
+              Image.asset('assets/images/landing_banner.png', height: 140),
+              const SizedBox(height: 24),
+              const CircularProgressIndicator(),
+              const SizedBox(height: 24),
               const Text(
                 'Not a substitute for professional medical advice.',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 11,
-                  color: AppColors.slate400,
-                ),
+                style: TextStyle(fontSize: 12),
               ),
             ],
           ),
