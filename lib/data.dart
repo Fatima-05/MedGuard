@@ -27,13 +27,11 @@ const List<Medication> neuroMeds = [
   Medication(name: 'Sertraline', dosage: '50 mg', frequency: 'Once daily', rxcui: '36437'),
 ];
 
-// Medicines "detected" by the scan screen.
 const List<Medication> scannedMeds = [
   Medication(name: 'Warfarin', dosage: '5 mg', frequency: 'Once daily', rxcui: '11289'),
   Medication(name: 'Aspirin', dosage: '81 mg', frequency: 'Once daily', rxcui: '1191'),
 ];
 
-// Each past analysis is a map (list of maps, like in the lectures).
 final List<Map<String, dynamic>> history = [
   {
     'date': 'Oct 14, 2026 · 09:24 AM',

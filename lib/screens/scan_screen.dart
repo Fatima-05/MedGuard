@@ -54,7 +54,6 @@ class ScanScreen extends StatelessWidget {
           for (final med in scannedMeds) MedicationCard(medication: med),
           const SizedBox(height: 16),
           FilledButton(
-            // Go back and send the detected medicines to the checker.
             onPressed: () => Navigator.pop(context, scannedMeds),
             child: const Text('Add to My List'),
           ),

@@ -6,7 +6,6 @@ class ResultsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Read the data sent with RouteSettings.
     final data =
         ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
     final List interactions = data['interactions'];

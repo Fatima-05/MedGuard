@@ -20,7 +20,6 @@ class _AuthScreenState extends State<AuthScreen> {
       );
       return;
     }
-    // Go to the dashboard and remove this screen from the back stack.
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => const DashboardScreen()),

@@ -31,7 +31,6 @@ class _CheckerScreenState extends State<CheckerScreen> {
     });
   }
 
-  // Open the scan screen and wait for the medicines it sends back with pop.
   Future<void> openScan() async {
     final result = await Navigator.push(
       context,
@@ -45,7 +44,6 @@ class _CheckerScreenState extends State<CheckerScreen> {
     }
   }
 
-  // Open the results screen and send the data using RouteSettings.
   void checkInteractions() {
     if (meds.length < 2) {
       ScaffoldMessenger.of(context).showSnackBar(
